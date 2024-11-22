@@ -1,0 +1,7 @@
+C:\Users\v-ppihapati\source\repos\ppichapati\HE_BackEnd_Role\CodingExcercise.Tests\bin\Debug\net8.0\CoverletSourceRootsMapping_CodingExcercise.Tests
+C:\Users\v-ppihapati\source\repos\ppichapati\HE_BackEnd_Role\CodingExcercise.Tests\obj\Debug\net8.0\CodingExcercise.Tests.csproj.AssemblyReference.cache
+C:\Users\v-ppihapati\source\repos\ppichapati\HE_BackEnd_Role\CodingExcercise.Tests\obj\Debug\net8.0\CodingExcercise.Tests.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\v-ppihapati\source\repos\ppichapati\HE_BackEnd_Role\CodingExcercise.Tests\obj\Debug\net8.0\CodingExcercise.Tests.AssemblyInfoInputs.cache
+C:\Users\v-ppihapati\source\repos\ppichapati\HE_BackEnd_Role\CodingExcercise.Tests\obj\Debug\net8.0\CodingExcercise.Tests.AssemblyInfo.cs
+C:\Users\v-ppihapati\source\repos\ppichapati\HE_BackEnd_Role\CodingExcercise.Tests\obj\Debug\net8.0\CodingExcercise.Tests.csproj.CoreCompileInputs.cache
+C:\Users\v-ppihapati\source\repos\ppichapati\HE_BackEnd_Role\CodingExcercise.Tests\obj\Debug\net8.0\CodingExcercise.Tests.sourcelink.json
