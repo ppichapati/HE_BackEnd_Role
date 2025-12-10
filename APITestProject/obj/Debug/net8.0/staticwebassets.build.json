@@ -1,11 +1,1 @@
-{
-  "Version": 1,
-  "Hash": "h77q0r3gavrPab5/XTlnGehDJVre1LS0wHO6hTB57tA=",
-  "Source": "APITestProject",
-  "BasePath": "_content/APITestProject",
-  "Mode": "Default",
-  "ManifestType": "Build",
-  "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
-}
+{"Version":1,"Hash":"XMsp0Z55IPxCj+b1ouMT72o4ksbw15x4JSrF26tmUXg=","Source":"APITestProject","BasePath":"/","Mode":"Root","ManifestType":"Build","ReferencedProjectsConfiguration":[],"DiscoveryPatterns":[],"Assets":[],"Endpoints":[]}
