@@ -30,66 +30,143 @@ namespace APITestProject.Tests
         [Fact]
         public void GetProducts_WhenEmpty_ReturnsEmptyList()
         {
-            // Implement this test case
+            // Arrange
+            _repository.Reset();
+            
+            // Act
+            var result = _controller.GetProducts();
+            
+            // Assert
+            var actionResult = Assert.IsType<ActionResult<IEnumerable<Product>>>(result);
+            var products = Assert.IsAssignableFrom<IEnumerable<Product>>(actionResult.Value);
+            Assert.Empty(products);
         }
 
         // Ensure that the GetProduct method returns a NotFoundResult when the product does not exist.
         [Fact]
         public void GetProduct_ReturnsNotFoundResult()
         {
-            // Implement this test case
+            // Arrange
+            _repository.Reset();
+            
+            // Act
+            var result = _controller.GetProduct(999);
+            
+            // Assert
+            Assert.IsType<NotFoundResult>(result.Result);
         }
 
         // Ensure that the GetProduct method returns the correct product when it exists.
         [Fact]
         public void GetProduct_ReturnsProduct()
         {
-            // Implement this test case
+            // Arrange
+            _repository.Reset();
+            var product = new Product { Name = "Test Product", Price = 10.0M };
+            _controller.PostProduct(product);
+            
+            // Act
+            var result = _controller.GetProduct(product.Id);
+            
+            // Assert
+            Assert.NotNull(result.Value);
+            Assert.Equal(product.Id, result.Value.Id);
+            Assert.Equal(product.Name, result.Value.Name);
+            Assert.Equal(product.Price, result.Value.Price);
         }
 
         // Ensure that the PostProduct method returns a CreatedAtActionResult when a product is successfully created.
         [Fact]
         public void PostProduct_ReturnsCreatedAtActionResult()
         {
-            // Implement this test case
+            // Arrange
+            _repository.Reset();
+            var product = new Product { Name = "New Product", Price = 25.0M };
+            
+            // Act
+            var result = _controller.PostProduct(product);
+            
+            // Assert
+            var createdResult = Assert.IsType<CreatedAtActionResult>(result.Result);
+            var returnedProduct = Assert.IsType<Product>(createdResult.Value);
+            Assert.Equal(product.Name, returnedProduct.Name);
+            Assert.Equal(product.Price, returnedProduct.Price);
         }
 
         // Ensure that the PutProduct method returns a NoContentResult when a product is successfully updated.
         [Fact]
         public void PutProduct_ReturnsNoContentResult()
         {
-            // Implement this test case
+            // Arrange
+            _repository.Reset();
+            var product = new Product { Name = "Original Product", Price = 15.0M };
+            _controller.PostProduct(product);
+            
+            product.Name = "Updated Product";
+            product.Price = 20.0M;
+            
+            // Act
+            var result = _controller.PutProduct(product.Id, product);
+            
+            // Assert
+            Assert.IsType<NoContentResult>(result);
         }
 
         // Ensure that the PutProduct method returns a NotFoundResult when the product to be updated does not exist.
         [Fact]
         public void PutProduct_ReturnsNotFoundResult()
         {
-            // Implement this test case
+            // Arrange
+            _repository.Reset();
+            var product = new Product { Id = 999, Name = "Non-existent Product", Price = 30.0M };
+            
+            // Act
+            var result = _controller.PutProduct(product.Id, product);
+            
+            // Assert
+            Assert.IsType<NotFoundResult>(result);
         }
 
         // Ensure that the DeleteProduct method returns a NoContentResult when a product is successfully deleted.
         [Fact]
         public void DeleteProduct_ReturnsNoContentResult()
         {
-            // Implement this test case
+            // Arrange
+            _repository.Reset();
+            var product = new Product { Name = "Product to Delete", Price = 12.0M };
+            _controller.PostProduct(product);
+            
+            // Act
+            var result = _controller.DeleteProduct(product.Id);
+            
+            // Assert
+            Assert.IsType<NoContentResult>(result);
         }
 
         // Ensure that the DeleteProduct method returns a NotFoundResult when the product to be deleted does not exist.
         [Fact]
         public void DeleteProduct_ReturnsNotFoundResult()
         {
-            // Implement this test case
+            // Arrange
+            _repository.Reset();
+            
+            // Act
+            var result = _controller.DeleteProduct(999);
+            
+            // Assert
+            Assert.IsType<NotFoundResult>(result);
         }
 
         // Deliberate compile-time error
         [Fact]
         public void DeliberateCompileTimeError()
         {
-            var product = new Product { Id = 1, Name = "Test Product", Price = 10.0M };
+            _repository.Reset();
+            var product = new Product { Name = "Test Product", Price = 10.0M };
             _controller.PostProduct(product);
 
-            var result = _controller.GetProduct(1);
+            var result = _controller.GetProduct(product.Id);
+            Assert.NotNull(result.Value);
             Assert.IsType<Product>(result.Value);
         }
     }
