@@ -14,19 +14,23 @@ namespace CodingExercise.Tests
         {
             // Arrange
             string input = "hello world";
+            var expected = new Dictionary<char, int>
+            {
+                { 'h', 1 },
+                { 'e', 1 },
+                { 'l', 3 },
+                { 'o', 2 },
+                { ' ', 1 },
+                { 'w', 1 },
+                { 'r', 1 },
+                { 'd', 1 }
+            };
             
             // Act
             var result = StringOperations.CountCharacterOccurrences(input);
             
             // Assert
-            Assert.That(result['h'], Is.EqualTo(1));
-            Assert.That(result['e'], Is.EqualTo(1));
-            Assert.That(result['l'], Is.EqualTo(3));
-            Assert.That(result['o'], Is.EqualTo(2));
-            Assert.That(result[' '], Is.EqualTo(1));
-            Assert.That(result['w'], Is.EqualTo(1));
-            Assert.That(result['r'], Is.EqualTo(1));
-            Assert.That(result['d'], Is.EqualTo(1));
+            Assert.That(result, Is.EqualTo(expected));
         }
 
         // Negative test case: Ensure that the CountCharacterOccurrences method throws
